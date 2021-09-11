@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block contenido %}
+    <title> Consultar Ingreso Cabecera </title>
+
+
+    <div class="b-example-divider">
+        <h2 class="text-center">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bi bi-pin"/>
+            </svg>
+            "Listar Ingreso Cabecera"
+        </h2>
+    </div>
+    <div class="container-fluid py-lg-2">
+        <a href='{% url 'crear_persona' %}' class="btn btn-primary btn-lg" type="button">
+            <svg class="bi me-2" width="32" height="20">
+                <use xlink:href="#bi bi-plus-square-fill"/>
+            </svg>
+            Crear Ingreso Cabecera </a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Fecha Creacion</th>
+                <th scope="col">Fecha Modificacion</th>
+                <th scope="col">Modificar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ingreso_cabecera in ingreso_cabecera_ls %}
+                {% if ingreso_cabecera.estado == 1 %}
+                    <tr>
+                        <td> {{ ingreso_cabecera.codigo }} </td>
+                        <td> {{ ingreso_cabecera.descripcion }} </td>
+                        <td> {{ ingreso_cabecera.fecha_creacion }} </td>
+                        <td> {{ ingreso_cabecera.fecha_modificacion }} </td>
+                        <td><a href='{% url 'modificar_ingreso_cabecera' ingreso_cabecera.id %}'>
+                            <svg class="bi me-2" width="32" height="20">
+                                <use xlink:href="#bi bi-pencil-square"/>
+                            </svg>
+                        </a></td>
+                        <td><a href='{% url 'eliminar_ingreso_cabecera' ingreso_cabecera %}'>
+                            <svg class="bi me-2" width="32" height="20">
+                                <use xlink:href="#bi bi-trash"/>
+                            </svg>
+                        </a></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}
