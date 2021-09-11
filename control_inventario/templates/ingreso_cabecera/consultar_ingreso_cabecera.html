@@ -12,7 +12,7 @@
         </h2>
     </div>
     <div class="container-fluid py-lg-2">
-        <a href='{% url 'crear_persona' %}' class="btn btn-primary btn-lg" type="button">
+        <a href='{% url 'crear_ingreso_cabecera' %}' class="btn btn-primary btn-lg" type="button">
             <svg class="bi me-2" width="32" height="20">
                 <use xlink:href="#bi bi-plus-square-fill"/>
             </svg>
@@ -43,7 +43,7 @@
                                 <use xlink:href="#bi bi-pencil-square"/>
                             </svg>
                         </a></td>
-                        <td><a href='{% url 'eliminar_ingreso_cabecera' ingreso_cabecera %}'>
+                        <td><a href='{% url 'eliminar_ingreso_cabecera' ingreso_cabecera.id %}'>
                             <svg class="bi me-2" width="32" height="20">
                                 <use xlink:href="#bi bi-trash"/>
                             </svg>
